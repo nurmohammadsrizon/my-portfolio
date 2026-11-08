@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --ink: #0f1226;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+html {
+  background: #eef1fb;
+}
+
+body {
+  background:
+    radial-gradient(1200px 700px at 10% -10%, #e4defc 0%, transparent 60%),
+    radial-gradient(1000px 700px at 100% 10%, #d8ecff 0%, transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, #fde0ef 0%, transparent 60%),
+    #eef1fb;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(124, 92, 255, 0.3);
+}
+
+/* ---------- White glass ---------- */
+.glass {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.42));
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(26px) saturate(180%);
+  -webkit-backdrop-filter: blur(26px) saturate(180%);
+  box-shadow:
+    0 0 0 1px rgba(110, 120, 200, 0.1),
+    0 18px 50px -18px rgba(70, 80, 170, 0.28),
+    0 2px 6px rgba(70, 80, 170, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.glass-strong {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62));
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px) saturate(190%);
+  -webkit-backdrop-filter: blur(30px) saturate(190%);
+  box-shadow:
+    0 0 0 1px rgba(110, 120, 200, 0.12),
+    0 30px 80px -24px rgba(70, 80, 170, 0.35),
+    inset 0 1px 0 #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #3b6dff 0%, #7c5cff 45%, #e0408f 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 6s linear infinite;
+}
+
+@keyframes sheen {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6d4aff;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(90, 100, 190, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 100, 190, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 70%);
+}
+
+/* Gradient hairline that appears on hover */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #3b6dff, #a78bfa 45%, #e0408f);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.glow-border:hover::before {
+  opacity: 0.9;
+}
+
+.pause-on-hover:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
