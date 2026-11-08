@@ -18,10 +18,10 @@ const icons = {
 };
 
 const accents = {
-  electric: { hex: "59,109,255", color: "#3b6dff" },
-  violet: { hex: "124,92,255", color: "#7c5cff" },
-  cyan: { hex: "6,182,212", color: "#06b6d4" },
-  magenta: { hex: "224,64,143", color: "#e0408f" },
+  electric: { hex: "110,231,183", color: "#6ee7b7" },
+  violet: { hex: "52,211,153", color: "#34d399" },
+  cyan: { hex: "45,212,191", color: "#2dd4bf" },
+  magenta: { hex: "190,242,100", color: "#bef264" },
 };
 
 function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
@@ -72,7 +72,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
           />
           <div className="relative">
             <div
-              className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white transition duration-500 group-hover:rotate-[-8deg] group-hover:scale-110"
+              className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/30 backdrop-blur-md transition duration-500 group-hover:rotate-[-8deg] group-hover:scale-110"
               style={{ color, boxShadow: `0 10px 28px -8px rgba(${hex},0.55), inset 0 0 0 1px rgba(${hex},0.15)` }}
             >
               <Icon className="h-6 w-6" />
@@ -83,7 +83,7 @@ function SkillCard({ group, index }: { group: SkillGroup; index: number }) {
               {group.items.map((it) => (
                 <span
                   key={it}
-                  className="rounded-lg border border-white bg-white/70 px-2.5 py-1 font-mono text-xs text-ink/75 shadow-sm transition hover:-translate-y-0.5"
+                  className="rounded-lg border border-white/25 bg-white/[0.06] px-2.5 py-1 font-mono text-xs text-white/90 transition hover:-translate-y-0.5"
                   style={{ ["--c" as string]: color }}
                 >
                   {it}

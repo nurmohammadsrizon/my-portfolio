@@ -48,7 +48,7 @@ function Typewriter({ words }: { words: string[] }) {
   }, [text, deleting, i, words]);
 
   return (
-    <span className="font-mono text-base text-ink/80 md:text-lg">
+    <span className="font-mono text-base text-white/90 md:text-lg tshadow">
       {text}
       <span className="ml-0.5 inline-block h-[1.1em] w-[2px] translate-y-[3px] animate-pulse bg-violet" />
     </span>
@@ -108,6 +108,8 @@ export default function Hero() {
     <section id="top" ref={ref} className="relative min-h-screen overflow-hidden pt-28">
       <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-6 px-6 lg:grid-cols-[1.05fr_1fr]">
         <motion.div style={{ y: textY, opacity: textOpacity }} className="relative z-10 py-10">
+          {/* soft scrim behind the copy so it stays readable over bright artwork; the rest of the picture stays clear */}
+          <div aria-hidden className="pointer-events-none absolute -inset-x-16 -inset-y-10 -z-10 bg-[radial-gradient(ellipse_at_35%_50%,rgba(2,12,8,0.5),transparent_72%)]" />
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -121,7 +123,7 @@ export default function Hero() {
             <span className="eyebrow !tracking-[0.18em] !text-ink/70">Open to opportunities</span>
           </motion.div>
 
-          <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl xl:text-7xl">
+          <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-white tshadow sm:text-6xl xl:text-7xl">
             <Word delay={0.1}>Nur</Word> <Word delay={0.18}>Mohammad</Word>
             <br />
             <span className="gradient-text">
@@ -142,7 +144,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.65, ease }}
-            className="mt-5 max-w-xl font-display text-xl font-medium text-ink md:text-2xl"
+            className="mt-5 max-w-xl font-display text-xl font-medium text-white tshadow md:text-2xl"
           >
             {profile.headline}
           </motion.p>
@@ -151,7 +153,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.78, ease }}
-            className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+            className="mt-4 max-w-xl text-base leading-relaxed text-white/80 tshadow md:text-lg"
           >
             {profile.intro}
           </motion.p>
@@ -164,10 +166,10 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-white shadow-[0_14px_40px_-10px_rgba(15,18,38,0.6)] transition hover:scale-[1.04]"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-emerald-300 px-7 py-3.5 text-sm font-semibold text-emerald-950 shadow-[0_14px_44px_-10px_rgba(16,185,129,0.85)] transition hover:scale-[1.04]"
             >
               <span className="absolute inset-0 -z-0 translate-y-full bg-gradient-to-r from-electric via-violet to-magenta transition-transform duration-500 group-hover:translate-y-0" />
-              <span className="relative">Explore My Work</span>
+              <span className="relative transition-colors">Explore My Work</span>
               <ArrowRight className="relative h-4 w-4 transition group-hover:translate-x-1" />
             </a>
             <a
@@ -227,9 +229,9 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-muted md:flex"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/70 md:flex"
       >
-        <span className="eyebrow !text-[0.6rem] !text-muted">Scroll</span>
+        <span className="eyebrow !text-[0.6rem] !text-white/70">Scroll</span>
         <motion.span animate={{ y: [0, 8, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
           <MousePointer2 className="h-4 w-4 rotate-180" />
         </motion.span>

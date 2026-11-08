@@ -2,22 +2,6 @@
   "name": "srizon-portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "White-glass, scroll-driven portfolio. Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 3 · React Three Fiber 9 + drei 10 · Framer Motion · Lenis · Lucide.",
-  "keywords": [
-    "portfolio"
-  ],
-  "homepage": "https://github.com/nurmohammadsrizon/my-portfolio#readme",
-  "bugs": {
-    "url": "https://github.com/nurmohammadsrizon/my-portfolio/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nurmohammadsrizon/my-portfolio.git"
-  },
-  "license": "ISC",
-  "author": "srizon",
-  "type": "nextjs",
-  "main": "postcss.config.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav";
+import BackgroundStack from "@/components/BackgroundStack";
 import Atmosphere from "@/components/Atmosphere";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <SmoothScroll />
       <ScrollProgress />
+      <BackgroundStack />
       <Atmosphere />
       <Nav />
       <main className="relative z-10">

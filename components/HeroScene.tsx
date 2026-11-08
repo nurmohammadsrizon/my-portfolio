@@ -5,7 +5,7 @@ import { Float, MeshDistortMaterial, Environment, Lightformer } from "@react-thr
 import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
-const palette = ["#3b6dff", "#7c5cff", "#06b6d4", "#e0408f"];
+const palette = ["#6ee7b7", "#34d399", "#2dd4bf", "#bef264"];
 
 /** Glass bubble: a clear iridescent shell that holds the glowing core. */
 function GlassShell() {
@@ -43,8 +43,8 @@ function Core() {
     <mesh ref={mesh}>
       <icosahedronGeometry args={[0.85, 6]} />
       <MeshDistortMaterial
-        color="#7c5cff"
-        emissive="#5b3df5"
+        color="#10b981"
+        emissive="#047857"
         emissiveIntensity={0.55}
         roughness={0.2}
         metalness={0.1}
@@ -193,7 +193,7 @@ function Dust({ count = 220 }: { count?: number }) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.03} color="#7c5cff" transparent opacity={0.5} sizeAttenuation depthWrite={false} />
+      <pointsMaterial size={0.03} color="#6ee7b7" transparent opacity={0.6} sizeAttenuation depthWrite={false} />
     </points>
   );
 }
@@ -224,9 +224,9 @@ export default function HeroScene() {
     >
       <Environment resolution={128} frames={1}>
         <Lightformer form="rect" intensity={3} position={[0, 5, -4]} scale={[12, 6, 1]} color="#ffffff" />
-        <Lightformer form="rect" intensity={2} position={[-5, 1, 2]} scale={[4, 8, 1]} color="#a5b4ff" />
-        <Lightformer form="rect" intensity={2} position={[5, -1, 2]} scale={[4, 8, 1]} color="#ffb3d6" />
-        <Lightformer form="circle" intensity={2} position={[0, -4, 3]} scale={4} color="#9be7ff" />
+        <Lightformer form="rect" intensity={2} position={[-5, 1, 2]} scale={[4, 8, 1]} color="#a7f3d0" />
+        <Lightformer form="rect" intensity={2} position={[5, -1, 2]} scale={[4, 8, 1]} color="#d9f99d" />
+        <Lightformer form="circle" intensity={2} position={[0, -4, 3]} scale={4} color="#99f6e4" />
       </Environment>
       <ambientLight intensity={0.7} />
       <directionalLight position={[3, 4, 5]} intensity={1.2} />
@@ -236,9 +236,9 @@ export default function HeroScene() {
           <Core />
         </Float>
         <Network />
-        <Tablet radius={2.5} speed={0.55} tilt={[0.45, 0, 0.3]} color="#06b6d4" />
-        <Tablet radius={2.95} speed={-0.4} tilt={[-0.7, 0, 0.5]} color="#e0408f" phase={2} />
-        <Tablet radius={3.3} speed={0.3} tilt={[1.1, 0, -0.4]} color="#3b6dff" phase={4} />
+        <Tablet radius={2.5} speed={0.55} tilt={[0.45, 0, 0.3]} color="#5eead4" />
+        <Tablet radius={2.95} speed={-0.4} tilt={[-0.7, 0, 0.5]} color="#bef264" phase={2} />
+        <Tablet radius={3.3} speed={0.3} tilt={[1.1, 0, -0.4]} color="#34d399" phase={4} />
         <Dust />
       </Rig>
     </Canvas>

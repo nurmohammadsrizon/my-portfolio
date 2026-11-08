@@ -5,7 +5,7 @@ const half = Math.ceil(all.length / 2);
 const rowA = all.slice(0, half);
 const rowB = all.slice(half);
 
-const dots = ["#3b6dff", "#7c5cff", "#06b6d4", "#e0408f"];
+const dots = ["#6ee7b7", "#34d399", "#2dd4bf", "#bef264"];
 
 function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
   const doubled = [...items, ...items];

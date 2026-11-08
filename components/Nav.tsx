@@ -59,7 +59,7 @@ export default function Nav() {
               {active === l.id && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 rounded-full bg-white shadow-[0_4px_14px_-4px_rgba(80,90,190,0.35)]"
+                  className="absolute inset-0 rounded-full bg-white/20 ring-1 ring-white/40 shadow-[0_4px_22px_-4px_rgba(52,211,153,0.55)]"
                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
               )}
@@ -68,7 +68,7 @@ export default function Nav() {
         </ul>
         <a
           href="#contact"
-          className="rounded-full bg-ink px-4 py-1.5 text-sm font-medium text-white transition hover:scale-105"
+          className="rounded-full bg-emerald-300 px-4 py-1.5 text-sm font-semibold text-emerald-950 transition hover:scale-105"
         >
           Hire me
         </a>

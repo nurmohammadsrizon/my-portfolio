@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 function W({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
-  const opacity = useTransform(progress, range, [0.14, 1]);
+  const opacity = useTransform(progress, range, [0.22, 1]);
   const y = useTransform(progress, range, [8, 0]);
   return (
     <motion.span style={{ opacity, y }} className="mr-[0.28em] inline-block">

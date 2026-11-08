@@ -44,9 +44,9 @@ export default function Contact() {
     <section id="contact" className="relative mx-auto max-w-7xl px-6 pb-16 pt-28">
       <Reveal>
         <div className="glass-strong relative overflow-hidden rounded-[2.2rem] p-8 md:p-14">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 animate-drift rounded-full bg-[#ffb3d6]/60 blur-[90px]" />
+          <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 animate-drift rounded-full bg-emerald-300/25 blur-[90px]" />
           <div
-            className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 animate-drift rounded-full bg-[#a9c4ff]/60 blur-[90px]"
+            className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 animate-drift rounded-full bg-lime-300/20 blur-[90px]"
             style={{ animationDelay: "-9s" }}
           />
           <div className="relative">
@@ -62,7 +62,7 @@ export default function Contact() {
               <Magnetic>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-sm font-semibold text-white shadow-[0_16px_40px_-12px_rgba(15,18,38,0.6)]"
+                  className="inline-flex items-center gap-2 rounded-full bg-emerald-300 px-8 py-4 text-sm font-semibold text-emerald-950 shadow-[0_16px_44px_-12px_rgba(16,185,129,0.8)]"
                 >
                   <Mail className="h-4 w-4" /> Say hello
                 </a>
@@ -79,7 +79,7 @@ export default function Contact() {
                   className="glass glow-border group flex items-center justify-between rounded-2xl p-5 transition hover:-translate-y-1"
                 >
                   <span className="flex items-center gap-4">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-violet shadow-sm">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-emerald-300 ring-1 ring-white/25">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span>
@@ -95,7 +95,7 @@ export default function Contact() {
         </div>
       </Reveal>
 
-      <footer className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-ink/10 pt-8 text-sm text-muted sm:flex-row">
+      <footer className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/15 pt-8 text-sm text-white/70 sm:flex-row">
         <p>© {new Date().getFullYear()} Nur Mohammad Srizon</p>
         <p>{profile.location}</p>
       </footer>

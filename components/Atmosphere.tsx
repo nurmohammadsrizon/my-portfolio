@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-/** Living pastel background: drifting colour fields plus a soft light that follows the cursor. */
+/** Green liquid light drifting over the artwork, plus a soft glow that follows the cursor. */
 export default function Atmosphere() {
   const x = useMotionValue(-400);
   const y = useMotionValue(-400);
@@ -12,29 +12,30 @@ export default function Atmosphere() {
 
   useEffect(() => {
     const move = (e: PointerEvent) => {
-      x.set(e.clientX - 260);
-      y.set(e.clientY - 260);
+      x.set(e.clientX - 280);
+      y.set(e.clientY - 280);
     };
     window.addEventListener("pointermove", move, { passive: true });
     return () => window.removeEventListener("pointermove", move);
   }, [x, y]);
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      <div className="absolute -left-40 -top-32 h-[560px] w-[560px] rounded-full bg-[#b9a7ff]/55 blur-[120px] animate-drift" />
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-[1] overflow-hidden">
       <div
-        className="absolute -right-32 top-[18%] h-[520px] w-[520px] rounded-full bg-[#8fd3ff]/55 blur-[120px] animate-drift"
-        style={{ animationDelay: "-7s" }}
+        className="liquid absolute -left-32 top-[8%] h-[520px] w-[520px] bg-[radial-gradient(circle_at_40%_40%,rgba(110,231,183,0.34),transparent_68%)] mix-blend-screen"
       />
       <div
-        className="absolute bottom-[-160px] left-[28%] h-[520px] w-[520px] rounded-full bg-[#ffb3d6]/50 blur-[130px] animate-drift"
-        style={{ animationDelay: "-14s" }}
+        className="liquid absolute -right-24 top-[42%] h-[560px] w-[560px] bg-[radial-gradient(circle_at_50%_50%,rgba(190,242,100,0.22),transparent_68%)] mix-blend-screen"
+        style={{ animationDelay: "-8s", animationDuration: "26s" }}
+      />
+      <div
+        className="liquid absolute bottom-[-160px] left-[30%] h-[600px] w-[600px] bg-[radial-gradient(circle_at_50%_50%,rgba(52,211,153,0.3),transparent_68%)] mix-blend-screen"
+        style={{ animationDelay: "-15s", animationDuration: "30s" }}
       />
       <motion.div
-        className="absolute h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,rgba(124,92,255,0.22),transparent_65%)]"
+        className="absolute h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(167,243,208,0.26),transparent_65%)] mix-blend-screen"
         style={{ x: sx, y: sy }}
       />
-      <div className="grid-bg absolute inset-0" />
     </div>
   );
 }

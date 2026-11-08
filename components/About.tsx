@@ -15,12 +15,12 @@ export default function About() {
         <div>
           <ScrollWords
             text={about.lead}
-            className="font-display text-2xl font-medium leading-snug text-ink md:text-[2rem] md:leading-[1.25]"
+            className="font-display text-2xl font-medium leading-snug text-white tshadow md:text-[2rem] md:leading-[1.25]"
           />
           <div className="mt-10 space-y-5">
             {about.paragraphs.map((p, i) => (
               <Reveal key={i} delay={0.08 * i}>
-                <p className="max-w-2xl text-lg leading-relaxed text-muted">{p}</p>
+                <p className="max-w-2xl text-lg leading-relaxed text-white/80 tshadow">{p}</p>
               </Reveal>
             ))}
           </div>
@@ -66,7 +66,7 @@ export default function About() {
                 {strengths.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-white bg-white/70 px-3.5 py-1.5 text-sm text-ink/80 shadow-sm transition hover:-translate-y-0.5 hover:border-violet/40 hover:text-violet"
+                    className="rounded-full border border-white/25 bg-white/[0.06] px-3.5 py-1.5 text-sm text-white/90 transition hover:-translate-y-0.5 hover:border-emerald-300/60 hover:text-emerald-200"
                   >
                     {s}
                   </span>

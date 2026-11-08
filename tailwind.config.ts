@@ -5,12 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0f1226",
-        muted: "#5b6082",
-        electric: "#3b6dff",
-        violet: "#7c5cff",
-        cyan: "#06b6d4",
-        magenta: "#e0408f",
+        ink: "#ffffff",
+        muted: "rgba(255,255,255,0.74)",
+        electric: "#6ee7b7",
+        violet: "#10b981",
+        cyan: "#5eead4",
+        magenta: "#bef264",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

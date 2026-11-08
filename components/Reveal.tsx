@@ -41,10 +41,10 @@ export function SectionHeading({
   return (
     <Reveal className="mb-14 max-w-2xl">
       <p className="eyebrow mb-4">{eyebrow}</p>
-      <h2 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink md:text-5xl">
+      <h2 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white tshadow md:text-5xl">
         {title} {accent && <span className="gradient-text">{accent}</span>}
       </h2>
-      {intro && <p className="mt-5 text-lg leading-relaxed text-muted">{intro}</p>}
+      {intro && <p className="mt-5 text-lg leading-relaxed text-white/75 tshadow">{intro}</p>}
     </Reveal>
   );
 }

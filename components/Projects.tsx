@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/resume";
 import { SectionHeading } from "./Reveal";
 
-const tints = ["#3b6dff", "#e0408f", "#7c5cff", "#06b6d4", "#3b6dff", "#e0408f"];
+const tints = ["#34d399", "#bef264", "#2dd4bf", "#6ee7b7", "#34d399", "#bef264"];
 
 /** Vertical scroll drives a horizontal gallery (sticky pin) — scroll-jacking without the jank. */
 export default function Projects() {
@@ -67,12 +67,12 @@ export default function Projects() {
               >
                 <div
                   aria-hidden
-                  className="absolute -right-16 -top-16 h-52 w-52 rounded-full opacity-40 blur-3xl transition duration-500 group-hover:opacity-70"
+                  className="absolute -right-16 -top-16 h-52 w-52 rounded-full opacity-30 blur-3xl transition duration-500 group-hover:opacity-60"
                   style={{ background: tints[i] }}
                 />
                 <div className="relative flex items-start justify-between">
                   <span className="font-display text-6xl font-bold gradient-text">{p.num}</span>
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-ink/40 shadow-sm transition group-hover:bg-ink group-hover:text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 ring-1 ring-white/25 transition group-hover:bg-emerald-300 group-hover:text-emerald-950">
                     <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </div>
@@ -83,7 +83,7 @@ export default function Projects() {
                   {p.stack.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-white bg-white/80 px-3 py-1 font-mono text-xs text-ink/75 shadow-sm"
+                      className="rounded-full border border-white/25 bg-white/[0.06] px-3 py-1 font-mono text-xs text-white/90"
                     >
                       {s}
                     </span>
@@ -94,7 +94,7 @@ export default function Projects() {
           </motion.div>
 
           {wide && (
-            <div className="mx-auto mt-10 h-[3px] w-48 overflow-hidden rounded-full bg-ink/10">
+            <div className="mx-auto mt-10 h-[3px] w-48 overflow-hidden rounded-full bg-white/25">
               <motion.div style={{ width: bar }} className="h-full rounded-full bg-gradient-to-r from-electric via-violet to-magenta" />
             </div>
           )}

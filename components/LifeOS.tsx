@@ -7,7 +7,7 @@ import { lifeos } from "@/data/resume";
 import { Reveal, SectionHeading } from "./Reveal";
 
 const layerIcons = [Brain, Database, Lightbulb, RadioTower, ShieldCheck, Layers];
-const layerColors = ["#e0408f", "#06b6d4", "#7c5cff", "#3b6dff", "#06b6d4", "#7c5cff"];
+const layerColors = ["#bef264", "#2dd4bf", "#34d399", "#6ee7b7", "#2dd4bf", "#34d399"];
 
 /** Scroll-driven architecture flow: the line fills and nodes light up as you scroll. */
 function Flow() {
@@ -25,14 +25,14 @@ function Flow() {
 
       {/* desktop: horizontal */}
       <div className="relative hidden lg:block">
-        <div className="absolute left-[8%] right-[8%] top-[22px] h-[3px] rounded-full bg-ink/10" />
+        <div className="absolute left-[8%] right-[8%] top-[22px] h-[3px] rounded-full bg-white/20" />
         <motion.div
           style={{ scaleX: fill }}
           className="absolute left-[8%] right-[8%] top-[22px] h-[3px] origin-left rounded-full bg-gradient-to-r from-electric via-violet to-magenta"
         />
         {/* live data packet travelling the line */}
         <div className="absolute left-[8%] right-[8%] top-[18px] h-3">
-          <span className="absolute h-3 w-3 animate-travel rounded-full bg-white shadow-[0_0_16px_4px_rgba(124,92,255,0.7)]" />
+          <span className="absolute h-3 w-3 animate-travel rounded-full bg-white shadow-[0_0_16px_4px_rgba(52,211,153,0.9)]" />
         </div>
         <ol className="relative grid grid-cols-6">
           {lifeos.flow.map((step, i) => {
@@ -42,7 +42,7 @@ function Flow() {
                 <motion.span
                   animate={{ scale: on ? 1 : 0.85 }}
                   className={`flex h-[46px] w-[46px] items-center justify-center rounded-full border font-mono text-sm transition-colors duration-500 ${
-                    on ? "border-transparent bg-ink text-white shadow-lg" : "border-white bg-white/80 text-muted"
+                    on ? "border-transparent bg-emerald-300 text-emerald-950 shadow-[0_0_22px_rgba(52,211,153,0.7)]" : "border-white/30 bg-white/10 text-white/70"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -60,7 +60,7 @@ function Flow() {
       <ol className="space-y-3 lg:hidden">
         {lifeos.flow.map((step, i) => (
           <li key={step} className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-mono text-xs text-white">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-300 font-mono text-xs text-emerald-950">
               {String(i + 1).padStart(2, "0")}
             </span>
             <span className="text-sm font-medium text-ink">{step}</span>
@@ -94,12 +94,12 @@ export default function LifeOS() {
               <div className="glass glow-border group relative h-full overflow-hidden rounded-3xl p-7 transition duration-500 hover:-translate-y-2">
                 <span
                   aria-hidden
-                  className="absolute -right-2 -top-5 select-none font-display text-8xl font-bold text-ink/[0.04] transition duration-500 group-hover:text-ink/[0.09]"
+                  className="absolute -right-2 -top-5 select-none font-display text-8xl font-bold text-white/[0.06] transition duration-500 group-hover:text-white/[0.14]"
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div
-                  className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white"
+                  className="relative mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/25"
                   style={{ color, boxShadow: `0 10px 26px -8px ${color}99` }}
                 >
                   <Icon className="h-5 w-5" />
