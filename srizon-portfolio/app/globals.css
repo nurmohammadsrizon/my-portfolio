@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --green: #34d399;
+  --green-deep: #10b981;
+  --mint: #6ee7b7;
+  --lime: #bef264;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+html {
+  background: #04100c;
+}
+
+body {
+  background: #04100c;
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.35);
+}
+
+/* ---------- Clear glass: 1% fill, the blur does the work ---------- */
+.glass,
+.glass-strong {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.01);
+  /* diagonal light sweep layered on top of the 1% fill */
+  background-image: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.12) 50%, transparent 62%);
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  background-position: 130% 0;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.45);
+  transition:
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass {
+  backdrop-filter: blur(18px) saturate(170%) brightness(0.7);
+  -webkit-backdrop-filter: blur(18px) saturate(170%) brightness(0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 40px rgba(255, 255, 255, 0.035),
+    0 24px 60px -26px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(16, 185, 129, 0.1);
+}
+
+.glass-strong {
+  backdrop-filter: blur(24px) saturate(190%) brightness(0.66);
+  -webkit-backdrop-filter: blur(24px) saturate(190%) brightness(0.66);
+  border-color: rgba(255, 255, 255, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 60px rgba(255, 255, 255, 0.04),
+    0 36px 80px -28px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(16, 185, 129, 0.14);
+  animation: glassSheen 10s ease-in-out infinite;
+}
+
+.glass:hover,
+.glass-strong:hover {
+  border-color: rgba(167, 243, 208, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 0 50px rgba(110, 231, 183, 0.08),
+    0 28px 70px -26px rgba(0, 0, 0, 0.65),
+    0 0 44px -10px rgba(52, 211, 153, 0.45);
+}
+
+.glass:hover {
+  animation: glassSheen 2.4s ease-in-out 1;
+}
+
+@keyframes glassSheen {
+  0%,
+  100% {
+    background-position: 130% 0;
+  }
+  50% {
+    background-position: -30% 0;
+  }
+}
+
+/* ---------- Text ---------- */
+.gradient-text {
+  background: linear-gradient(100deg, #ffffff 0%, #d1fae5 22%, #6ee7b7 52%, #34d399 78%, #bef264 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none; /* a shadow would show through the transparent fill */
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.55));
+  animation: sheen 6s linear infinite;
+}
+
+@keyframes sheen {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #86efac;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* text sitting directly on the artwork */
+.tshadow {
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- Hover hairline ---------- */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ffffff, #6ee7b7 45%, #bef264);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.glow-border:hover::before {
+  opacity: 0.95;
+}
+
+.pause-on-hover:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- Living background ---------- */
+@keyframes kenburns {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.09) translate3d(-1.6%, -1.2%, 0);
+  }
+}
+.kenburns {
+  animation: kenburns 26s ease-in-out infinite alternate;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 55% 45% / 55% 45% 60% 40%;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 40% 60% 45% 55% / 45% 60% 40% 55%;
+    transform: translate3d(50px, -40px, 0) rotate(45deg) scale(1.12);
+  }
+}
+.liquid {
+  animation: morph 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
