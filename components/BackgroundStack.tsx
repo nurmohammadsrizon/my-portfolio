@@ -52,13 +52,12 @@ function Layer({
     i === N - 1 ? 0 : ease(clamp((v - (i + 1 - WINDOW_START)) / WINDOW_LEN))
   );
 
-  const filter = useTransform([t, out, vb], (vals: number[]) => {
+  const filter = useTransform([t, out], (vals: number[]) => {
     if (reduced) return "none";
-    const [a, b, c] = vals;
-    const blur = (1 - a) * 26 + b * 16 + c; // arriving blur + leaving blur + scroll-velocity blur
-    const sat = 1 + (1 - a) * 0.35;
-    const bright = 1 - b * 0.25;
-    return `blur(${blur.toFixed(2)}px) saturate(${sat.toFixed(3)}) brightness(${bright.toFixed(3)})`;
+    const [a, b] = vals;
+    const sat = 1 + (1 - a) * 0.35; // slight colour boost while an image arrives
+    const bright = 1 - b * 0.25; // slight dim while an image leaves
+    return `saturate(${sat.toFixed(3)}) brightness(${bright.toFixed(3)})`;
   });
 
   // incoming images zoom-settle; the whole stack drifts slowly with scroll (parallax)
